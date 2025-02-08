@@ -9,6 +9,7 @@ use App\Repositories\Category\CategoryRepositoryInterface;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Exception;
 
 class CategoryController extends Controller
 {
@@ -59,4 +60,18 @@ class CategoryController extends Controller
         session()->flash('success', 'Categoría actualizada con éxito');
         return redirect()->route('categories.index');
     }
+
+    public function destroy(Category $category): RedirectResponse
+    {
+        try {
+            $this->repository->delete($category);
+            session()->flash('success', 'Categoría eliminada con éxito');
+            
+        } catch (\Exception $exception) { //capturamos el error del EloquentCategoryRepository(funcion deleteChecks() //
+            session()->flash('error', $exception->getMessage());
+        }
+
+        return redirect()->route('categories.index');
+     }
+
 }

@@ -27,7 +27,7 @@ class Wine extends Model
     {
         return [
             'year' => 'integer',
-            'price' => 'decimal:2"',
+            'price' => 'decimal:2',
             'stock' => 'integer',
         ];
     }
@@ -44,7 +44,7 @@ class Wine extends Model
         );
     }
 
-    public function formattedPrice()
+    public function formattedPrice(): Attribute //formato el precio del vino para que sea legible//
      {
         $formatter = new NumberFormatter('es_ES', NumberFormatter::CURRENCY); //trabajamos con valores monetarios de españa//
 

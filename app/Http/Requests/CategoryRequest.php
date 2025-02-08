@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CategoryRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
+
     public function authorize(): bool //ponemos true porque ya validamos la autorización en las rutas//
     {
         return true;
@@ -25,10 +23,11 @@ class CategoryRequest extends FormRequest
         if ($this->isMethod('post')) {
             $imageRules = 'required|image|mimes:jpeg,png,jpg,svg|max:2048';
         }
-//si estamos creando la imagen será requerida, pero si estamos editando no//
+        //si estamos creando la imagen será requerida, pero si estamos editando no//
 
         return [
-            'name' => 'required|string|max:255',
+            'name' => ['required', 'string', 'max:255', Rule::unique('categories', 'name')->ignore($this->route('category'))],
+            //validamos que el nombre de la categoría no se repita en caso de edición(en caso de creacion sigue validando con el unique() definido en la migracion)//
             'description' => 'required|string|max:2000',
             'image' => $imageRules,
         ];
@@ -40,6 +39,7 @@ class CategoryRequest extends FormRequest
             'name.required' => 'La categoria es requerida',
             'name.string' => 'La categoría debe ser un texto',
             'name.max' => 'La categoría no puede superar los 255 caracteres',
+            'name.unique' => 'La categoría ya existe',
 
             'description.required' => 'La descripción es requerida',
             'description.string' => 'La descripción debe ser un texto',
@@ -51,5 +51,4 @@ class CategoryRequest extends FormRequest
             'image.max' => 'La imagen no puede superar los 2MB',
         ];
     }
-
 }
