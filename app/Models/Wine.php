@@ -3,14 +3,15 @@
 namespace App\Models;
 
 use App\Traits\HasSlug;
+use App\Traits\WithCurrencyFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Services\UploadService;
-use NumberFormatter;
 
 class Wine extends Model
 {
     use HasSlug;
+    use WithCurrencyFormatter;
 
     protected $fillable = [
         'category_id',
@@ -46,10 +47,8 @@ class Wine extends Model
 
     public function formattedPrice(): Attribute //formato el precio del vino para que sea legible//
      {
-        $formatter = new NumberFormatter('es_ES', NumberFormatter::CURRENCY); //trabajamos con valores monetarios de españa//
-
         return Attribute::make(
-            get: fn () => $formatter->formatCurrency($this->price, 'EUR'),
+            get: fn () => $this->formatCurrency($this->price),
         );
      }
 
