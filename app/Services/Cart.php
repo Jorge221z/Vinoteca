@@ -65,7 +65,7 @@ final readonly class Cart
         return $this->repository->getTotalCost($formatted);
     }
 
-    public function hasProducts(Wine $wine): bool
+    public function hasProduct(Wine $wine): bool
     {
         return $this->repository->hasProducts($wine);
     }
