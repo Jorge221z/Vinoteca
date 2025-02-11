@@ -8,7 +8,7 @@
                     @method($method)
 
                     <div class="mb-4">
-                        <label for="name" class="block text-white text-sm font-bold md-2">Nombre</label>
+                        <label for="name" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Nombre</label>
                         <input type="text"
                                name="name"
                                id="name"
@@ -22,7 +22,7 @@
 
 
                     <div class="mb-4">
-                        <label for="category_id" class="block text-white text-sm font-bold mb-2">Categoría</label>
+                        <label for="category_id" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Categoría</label>
                         <select name="category_id" id="category_id" class="shadow appearance-none border rounded w-full py-2 x-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                             <option value="">-- Seleccione una categoría</option>
                             @foreach(\App\Models\Category::all() as $category)
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="year" class="block text-white text-sm font-bold mb-2">Año</label>
+                        <label for="year" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Año</label>
                         <input type="number"
                                name="year"
                                id="year"
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="price" class="block text-white text-sm font-bold mb-2">Precio</label>
+                        <label for="price" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Precio</label>
                         <input type="number"
                             name="price"
                             id="price"
@@ -63,7 +63,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="stock" class="block text-white text-sm font-bold mb-2">Cantidad</label>
+                        <label for="stock" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Cantidad</label>
                         <input type="number"
                             name="stock"
                             id="stock"
@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="image" class="block text-white text-sm font-bold mb-2">Imagen</label>
+                        <label for="image" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Imagen</label>
                         <input type="file"
                             name="image"
                             id="image"
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="description" class="block text-white text-sm font-bold mb-2">Descripcion</label>
+                        <label for="description" class="block text-gray-700 dark:text-white text-sm font-bold mb-2">Descripcion</label>
                         <input type="text"
                             name="description"
                             id="description"

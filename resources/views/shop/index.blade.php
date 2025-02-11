@@ -12,7 +12,7 @@
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
                     @foreach ($wines as $wine)
-                        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative">
+                        <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative pb-14">
                             <x-wine-image :wine="$wine"/>
 
                             <div class="flex flex-col p-4 leading-normal">
@@ -33,6 +33,7 @@
                                 <div class="mb-1"></div>
 
                                 <x-wine-info :wine="$wine"/>
+                                <div class="border-b border-gray-300 dark:border-gray-600 mb-3"></div>
                             </div>
 
                             <div class="absolute bottom-0 right-0 p-4 flex justify-between">
