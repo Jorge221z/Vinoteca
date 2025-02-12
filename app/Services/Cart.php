@@ -75,6 +75,9 @@ final readonly class Cart
         return $this->repository->getCart();
     }
 
-
+    public function isEmpty(): bool
+    {
+        return $this->repository->isEmpty();
+    }
     //de esta forma abstraemos la logica del repositorio//
 }
